@@ -2,11 +2,20 @@
 
 This is a starter repo for the Capstone project in the [Udacity C++ Nanodegree Program](https://www.udacity.com/course/c-plus-plus-nanodegree--nd213). The code for this repo was inspired by [this](https://codereview.stackexchange.com/questions/212296/snake-game-in-c-with-sdl) excellent StackOverflow post and set of responses.
 
-<img src="snake_game.gif"/>
+<img src="snake_game1.gif"/>
 
 The Capstone Project gives you a chance to integrate what you've learned throughout this program. This project will become an important part of your portfolio to share with current and future colleagues and employers.
 
-In this project, you can build your own C++ application or extend this Snake game, following the principles you have learned throughout this Nanodegree Program. This project will demonstrate that you can independently create applications using a wide range of C++ features.
+Following modifications are made to the snake project:
+* User Input
+  * The project accepts user input to adjust the diffuculty of the snake game. Depending on the selected level (1, 2 or 3) a different map layout is loaded and the speed increase/ decrease when the snake collects food is modified.
+* Reading data from a file
+  * There are 3 different map layouts stored in level1.txt, level2.txt and level3.txt. In these files a "1" represents an obstacle and a "0" no obstacle. Level 1 has only a few obstacles and Level 3 has the most obstacles. When a snake collides with an obstacle the game ends for this snake.
+
+* Poisoned food
+  * In addition to the spawning of food there is spawning poisoned food. When a snake collects the poisoned food the control with the keyboard is swapped (left with right and up with down). Only when normal food is collected again the control changes back to normal. The advantage of collecting poisoned food is, that the snake speed decreases (depending on the selected level) but its always a risk because of the swapped control. So poison can be used for tactical purposes to survive longer.
+* Multiplayer game 
+  * A second snake is added to have a multiplayer game. The first player uses the control w, a, s,d and the second player up, down, left, right. When a snake collides with the other snake, the responsible snake dies. The other snake can continue playing and wins if its score is higher than the score of the departed snake.
 
 ## Dependencies for Running Locally
 * cmake >= 3.7

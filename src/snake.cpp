@@ -18,7 +18,25 @@ void Snake::Update() {
     UpdateBody(current_cell, prev_cell);
   }
 }
+void Snake::SwitchControl(){
+  switch (direction) {
+    case Direction::kUp:
+      direction = Direction::kDown;
+      break;
 
+    case Direction::kDown:
+      direction = Direction::kUp;
+      break;
+
+    case Direction::kLeft:
+      direction = Direction::kRight;
+      break;
+
+    case Direction::kRight:
+      direction = Direction::kLeft;
+      break;
+  }
+}
 void Snake::UpdateHead() {
   switch (direction) {
     case Direction::kUp:
@@ -36,7 +54,7 @@ void Snake::UpdateHead() {
     case Direction::kRight:
       head_x += speed;
       break;
-  }
+  }  
 
   // Wrap the Snake around to the beginning if going off of the screen.
   head_x = fmod(head_x + grid_width, grid_width);
